@@ -19,7 +19,7 @@ class Xtracter:
         self.options = Options()
         self.options.add_argument("--headless")
         self.driver = webdriver.Chrome(
-            '../chromedriver.exe')  # , options=self.options)
+            './chromedriver.exe')  # , options=self.options)
         try:
             self.driver.get(self.url)
             sleep(1)
@@ -80,12 +80,12 @@ class Xtracter:
         with open(f"{self.city}.txt", "w") as contact_list:
             for i in self.contacts:
                 contact_list.write(f"+91{i}\n")
-            print("Contacts Printed\n")
+            print(f"Contacts Printed in {self.city}.txt\n")
 
 
 city = input("Enter City :- ")
 std_code = input("STD Code:- ")
-shop_category = input("Shop:- ")
+shop_category = input("Shop Type:- ")
 
 if __name__ == "__main__":
     x = Xtracter(city, std_code, shop_category)
